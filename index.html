@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>평택 진위 쌍용 스마트어반 | 10년 거주 후 결정</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+
+  <style>
+    :root {
+      --gold:        #C9A96E;
+      --gold-light:  #E2C992;
+      --gold-dark:   #9A7A45;
+      --dark:        #0D0D0D;
+      --dark-2:      #141414;
+      --dark-3:      #1C1C1C;
+      --dark-4:      #242424;
+      --white:       #FFFFFF;
+      --gray-1:      #F5F3EF;
+      --gray-2:      #CCCCCC;
+      --gray-3:      #888888;
+      --serif:       'Noto Serif KR', serif;
+      --sans:        'Pretendard', sans-serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--dark);
+      color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+      /* 미세 노이즈 텍스처 */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    /* ── 스크롤 애니메이션 ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── 골드 구분선 ── */
+    .gold-rule {
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+      margin: 0 auto 28px;
+      border-radius: 2px;
+    }
+
+    /* ── 섹션 공통 ── */
+    .section-wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+    .section-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 5.5vw, 28px);
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.45;
+      color: var(--white);
+      margin-bottom: 10px;
+      word-break: keep-all;
+    }
+    .section-sub {
+      font-size: 14px;
+      color: var(--gray-3);
+      text-align: center;
+      margin-bottom: 40px;
+      word-break: keep-all;
+    }
+
+    /* ════════════════════════════
+       1. HERO
+    ════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      /* 조감도 이미지 슬롯 */
+      background: url('') center/cover no-repeat, var(--dark-3);
+      padding: 0 24px 72px;
+    }
+
+    /* 그라디언트 오버레이 - 상단 어둡고 하단 더 어두운 시네마틱 */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.10) 40%,
+        rgba(0,0,0,0.75) 75%,
+        rgba(0,0,0,0.92) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid rgba(201,169,110,0.5);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+      background: rgba(201,169,110,0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(26px, 7vw, 38px);
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--white);
+      margin-bottom: 16px;
+      word-break: keep-all;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold-light);
+    }
+
+    .hero-location {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .hero-brand {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.03em;
+      margin-bottom: 32px;
+    }
+
+    .hero-cta {
+      display: block;
+      width: 100%;
+      padding: 17px 24px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--dark);
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 24px rgba(201,169,110,0.3);
+    }
+    .hero-cta:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(201,169,110,0.4);
+    }
+
+    /* 스크롤 힌트 */
+    .scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.45;
+      animation: scrollBounce 2.2s ease-in-out infinite;
+    }
+    .scroll-hint span { font-size: 10px; letter-spacing: 0.12em; color: var(--white); }
+    .scroll-hint svg { width: 16px; height: 16px; stroke: var(--white); fill: none; }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* 히어로 이미지 placeholder */
+    .hero-img-placeholder {
+      position: absolute; inset: 0; z-index: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px; color: rgba(255,255,255,0.2);
+      font-size: 13px; letter-spacing: 0.05em;
+      background: var(--dark-3);
+    }
+    .hero-img-placeholder svg { width: 40px; height: 40px; opacity: 0.3; }
+
+    /* ════════════════════════════
+       2. 핵심 단지 정보
+    ════════════════════════════ */
+    .info-section { background: var(--dark-2); }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .stat-card {
+      background: var(--dark-3);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 22px 18px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    .stat-card:hover { border-color: rgba(201,169,110,0.25); }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gray-3);
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .stat-value {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1.1;
+    }
+    .stat-value sub {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray-3);
+      vertical-align: baseline;
+      margin-left: 2px;
+    }
+    .stat-desc {
+      font-size: 12px;
+      color: var(--gray-3);
+      margin-top: 6px;
+    }
+
+    /* 이미지 카드 */
+    .img-card {
+      background: var(--dark-3);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .img-card:hover { border-color: rgba(201,169,110,0.25); }
+
+    .img-slot {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--dark-4);
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .img-slot.wide { aspect-ratio: 16/9; }
+    .img-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .img-placeholder {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.2);
+      font-size: 12px; letter-spacing: 0.05em;
+    }
+    .img-placeholder svg { width: 28px; height: 28px; }
+
+    /* 이미지 교체 가이드 주석은 HTML 내부에 */
+    .img-card-label {
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .img-card-label span {
+      font-size: 11px;
+      color: var(--gray-3);
+      font-weight: 400;
+    }
+
+    /* ════════════════════════════
+       3. 입지 & 호재
+    ════════════════════════════ */
+    .location-section { background: var(--dark); }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 24px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px 20px;
+      background: var(--dark-3);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .feature-item:hover {
+      border-color: rgba(201,169,110,0.2);
+      background: var(--dark-4);
+    }
+
+    .feature-icon {
+      width: 38px; height: 38px;
+      flex-shrink: 0;
+      background: rgba(201,169,110,0.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+
+    .feature-text h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .feature-text p {
+      font-size: 13px;
+      color: var(--gray-3);
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    /* 호재 이미지 카드 */
+    .horea-card {
+      background: var(--dark-3);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .horea-card-header {
+      padding: 16px 20px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ════════════════════════════
+       4. 상담 폼
+    ════════════════════════════ */
+    .form-section { background: var(--dark-2); }
+
+    .form-card {
+      background: var(--dark-3);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 16px;
+      padding: 32px 24px;
+    }
+
+    .form-head-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .form-head-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 8px;
+      word-break: keep-all;
+    }
+    .form-head-desc {
+      font-size: 13px;
+      color: var(--gray-3);
+      margin-bottom: 28px;
+      word-break: keep-all;
+    }
+    .form-head-desc strong { color: var(--gold-light); font-weight: 600; }
+
+    .form-group { margin-bottom: 12px; }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 15px 16px;
+      background: var(--dark-4);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: var(--white);
+      font-size: 15px;
+      font-family: var(--sans);
+      outline: none;
+      transition: border-color 0.25s;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--gold-dark); }
+    .form-group select { color: rgba(255,255,255,0.5); cursor: pointer; }
+    .form-group select option { background: var(--dark-3); color: var(--white); }
+
+    .form-checkbox {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px;
+      font-size: 13px; color: var(--gray-3);
+      cursor: pointer;
+    }
+    .form-checkbox input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .form-submit-btn {
+      display: block; width: 100%;
+      padding: 17px 24px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--dark);
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(201,169,110,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-submit-btn::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15));
+      pointer-events: none;
+    }
+    .form-submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(201,169,110,0.35);
+    }
+    /* 펄스 애니메이션 */
+    @keyframes goldPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(201,169,110,0.25); }
+      50% { box-shadow: 0 4px 32px rgba(201,169,110,0.5); }
+    }
+    .form-submit-btn { animation: goldPulse 2.5s ease-in-out infinite; }
+
+    /* ════════════════════════════
+       5. 플로팅 전화 버튼
+    ════════════════════════════ */
+    .floating-bar {
+      position: fixed;
+      bottom: 0; left: 0;
+      width: 100%;
+      padding: 12px 20px;
+      background: var(--dark-2);
+      border-top: 1px solid rgba(201,169,110,0.2);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .floating-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 24px;
+      background: transparent;
+      border: 1.5px solid var(--gold-dark);
+      border-radius: 8px;
+      color: var(--gold-light);
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: all 0.3s ease;
+    }
+    .floating-call:hover {
+      background: rgba(201,169,110,0.08);
+      border-color: var(--gold);
+    }
+    .floating-call svg {
+      width: 18px; height: 18px;
+      fill: var(--gold);
+      flex-shrink: 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <!-- 히어로 이미지 placeholder (이미지 삽입 시 div 제거 후 background-image 적용) -->
+    <div class="hero-img-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+      조감도 이미지를 교체해주세요
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="var(--gold)">
+          <circle cx="5" cy="5" r="5"/>
+        </svg>
+        세금 0원 · 청약통장 無
+      </div>
+      <h1 class="hero-title">
+        10년 먼저 살아보고<br>
+        결정하는 <em>평택 대단지</em>
+      </h1>
+      <p class="hero-location">경기도 평택시 진위면 가곡리 일원</p>
+      <p class="hero-brand">평택 진위 쌍용 스마트어반</p>
+      <button class="hero-cta" onclick="scrollToForm()">
+        내 조건으로 입주 가능한지 확인하기
+      </button>
+    </div>
+
+    <div class="scroll-hint">
+      <svg viewBox="0 0 24 24" stroke-width="1.8">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ 핵심 단지 정보 ═══════════ -->
+  <section class="info-section">
+    <div class="section-wrap">
+
+      <p class="section-label reveal">단지 개요</p>
+      <h2 class="section-title reveal reveal-delay-1">핵심 단지 정보</h2>
+      <div class="gold-rule reveal reveal-delay-2"></div>
+
+      <!-- 스탯 카드 2열 -->
+      <div class="stat-grid">
+        <div class="stat-card reveal">
+          <p class="stat-label">단지 규모</p>
+          <p class="stat-value">1,228<sub>세대</sub></p>
+          <p class="stat-desc">지하 2층 ~ 지상 29층<br>총 14개동</p>
+        </div>
+        <div class="stat-card reveal reveal-delay-1">
+          <p class="stat-label">주력 평형</p>
+          <p class="stat-value" style="font-size:18px; padding-top:4px;">64 · 77 · 84<sub>㎡</sub></p>
+          <p class="stat-desc">4Bay 혁신평면<br>드레스룸 · 팬트리</p>
+        </div>
+      </div>
+
+      <!-- 이미지 카드 1 -->
+      <div class="img-card reveal" style="margin-bottom:12px;">
+        <div class="img-slot">
+          <!-- ✅ 이미지 교체: <img src="경로.jpg" alt="임대 보증금"> 로 교체 -->
+          <div class="img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            이미지를 교체해주세요
+          </div>
+        </div>
+        <div class="img-card-label">
+          임대 보증금 / 10년 후 분양가
+          <span>상담 시 안내</span>
+        </div>
+      </div>
+
+      <!-- 이미지 카드 2 -->
+      <div class="img-card reveal reveal-delay-1">
+        <div class="img-slot">
+          <!-- ✅ 이미지 교체: <img src="경로.jpg" alt="잔여세대"> 로 교체 -->
+          <div class="img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            이미지를 교체해주세요
+          </div>
+        </div>
+        <div class="img-card-label">
+          로얄층 실시간 잔여세대
+          <span>빠르게 소진 중</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════ 입지 & 호재 ═══════════ -->
+  <section class="location-section">
+    <div class="section-wrap">
+
+      <p class="section-label reveal">입지 분석</p>
+      <h2 class="section-title reveal reveal-delay-1">완벽한 인프라와<br>압도적 호재</h2>
+      <div class="gold-rule reveal reveal-delay-2"></div>
+
+      <div class="feature-list">
+        <div class="feature-item reveal">
+          <div class="feature-icon">🚆</div>
+          <div class="feature-text">
+            <h4>교통 프리미엄</h4>
+            <p>1호선 진위역 차량 5분 거리 · 남사 진위 IC 예정으로 사통팔달 교통망 완성</p>
+          </div>
+        </div>
+        <div class="feature-item reveal reveal-delay-1">
+          <div class="feature-icon">🏫</div>
+          <div class="feature-text">
+            <h4>안심 학군</h4>
+            <p>단지 1.5km 이내 진위초·중·고교 위치, 상위 86% 수준의 우수 학군 확보</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 호재 이미지 카드 -->
+      <div class="horea-card reveal">
+        <div class="horea-card-header">📍 주요 개발 호재</div>
+        <div class="img-slot wide">
+          <!-- ✅ 이미지 교체: <img src="경로.jpg" alt="호재 지도"> 로 교체 -->
+          <div class="img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            이미지를 교체해주세요
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════ 상담 폼 ═══════════ -->
+  <section class="form-section" id="consult-form">
+    <div class="section-wrap" style="padding-top: 60px; padding-bottom: 60px;">
+
+      <div class="form-card reveal">
+        <p class="form-head-label">무료 상담 신청</p>
+        <h2 class="form-head-title">보증금·잔여세대,<br>지금 바로 확인하세요</h2>
+        <p class="form-head-desc">
+          신청 즉시 <strong>층별 가격표 + 로얄층 현황 + 특별 혜택</strong>을 안내해 드립니다.
+        </p>
+
+        <form id="leadForm">
+          <div class="form-group">
+            <input type="text" id="userName" placeholder="성함 (예: 홍길동)" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="userPhone" placeholder="연락처 (010-XXXX-XXXX)" required>
+          </div>
+          <div class="form-group">
+            <select id="userType" required>
+              <option value="" disabled selected>관심 평형을 선택해주세요</option>
+              <option value="64">64㎡ (구 25평형)</option>
+              <option value="77">77㎡ (구 30평형)</option>
+              <option value="84">84㎡ (구 33평형)</option>
+              <option value="undecided">아직 미정 (가격 보고 결정)</option>
+            </select>
+          </div>
+          <label class="form-checkbox">
+            <input type="checkbox" id="privacyAgree" required>
+            개인정보 수집 및 이용에 동의합니다.
+          </label>
+          <button type="button" class="form-submit-btn" id="kakaoBtn">
+            상담 신청
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════ 플로팅 전화 버튼 ═══════════ -->
+  <div class="floating-bar">
+    <a href="tel:010-0000-0000" class="floating-call">
+      <svg viewBox="0 0 24 24">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+      전화 바로 연결
+    </a>
+  </div>
+
+
+  <script>
+    /* ── 스크롤 reveal ── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── 폼 스크롤 ── */
+    function scrollToForm() {
+      document.getElementById('consult-form').scrollIntoView({ behavior: 'smooth' });
+      trackPixelEvent('ClickButton', { buttonName: 'CTA_Hero' });
+    }
+
+    /* ── 당근 픽셀 (가상 함수) ── */
+    function trackPixelEvent(eventName, data) {
+      console.log(`[Daangn Pixel] ${eventName}`, data || '');
+    }
+    window.onload = () => trackPixelEvent('PageView');
+
+    /* ── 솔라피 SMS — Netlify Function으로 안전하게 호출 (API 키 서버에서 관리) ── */
+    async function sendSMS(name, phone, type) {
+      await fetch('/.netlify/functions/send-sms', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, type })
+      });
+    }
+
+    /* ── 상담 신청 버튼 클릭 ── */
+    document.getElementById('kakaoBtn').addEventListener('click', async function () {
+      const name  = document.getElementById('userName').value.trim();
+      const phone = document.getElementById('userPhone').value.trim();
+      const type  = document.getElementById('userType').value || '미선택';
+      const agree = document.getElementById('privacyAgree').checked;
+
+      if (!name)  { alert('성함을 입력해주세요.'); return; }
+      if (!phone) { alert('연락처를 입력해주세요.'); return; }
+      if (!agree) { alert('개인정보 수집 및 이용에 동의해주세요.'); return; }
+
+      this.disabled = true;
+      this.textContent = '전송 중...';
+
+      await sendSMS(name, phone, type);
+
+      trackPixelEvent('CompleteRegistration', { name, phone });
+
+      alert(`${name}님, 상담 신청이 완료되었습니다!\n담당자가 곧 연락드리겠습니다 😊`);
+      document.getElementById('leadForm').reset();
+
+      this.disabled = false;
+      this.textContent = '상담 신청';
+    });
+  </script>
+
+</body>
+</html>
